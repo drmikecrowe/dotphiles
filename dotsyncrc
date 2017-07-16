@@ -81,7 +81,7 @@ wget/wgetrc
 [hosts]
 mcrowe-Inspiron-7537		type=masterhost		
 
-vpnrouter					rsync=mcrowe-Inspiron-7537
+plex					rsync=mcrowe-Inspiron-7537
 
 #host1.example.com               git=ANY                        files=custom/dotfile    #git repo, pull from anywhere and link a custom dotfile
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
