@@ -38,4 +38,8 @@ mutt/mailboxes.*
 mutt/smime/*
 mutt/certificates
 task/task/*.data
+ssh/config.*
+ssh/*.pem
+ssh/*.ppk
+ssh/*rsa*
 

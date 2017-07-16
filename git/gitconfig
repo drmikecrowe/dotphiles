@@ -9,8 +9,8 @@
 
 # Global Config
 [user]
-    #name = "**Your Name**"
-    #email = "**Your Email**"
+    name = "Mike Crowe"
+    email = "mcrowe@zipitwireless.com"
     #signingkey = **Your GPG ID**
 
 [branch "master"]

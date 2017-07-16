@@ -8,6 +8,11 @@
 "
 
 " Call dotvim
+
+
+"
+let g:dotvim_colorscheme = 'slate'
+
 source ~/.vim/dotvim.vim
 
 if has("user_commands")
@@ -15,8 +20,7 @@ if has("user_commands")
   filetype off
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
-  "let g:vundles=['general', 'git', 'hg', 'programming', 'completion', 'ruby', 'python', 'misc']
-  let g:vundles=['general', 'programming']
+  let g:vundles=['general', 'git', 'programming', 'completion', 'ruby', 'python', 'javascript', 'html', 'misc']
   let g:neocomplcache_enable_at_startup = 1
   " Load 'vundles'
   source ~/.vim/vundles.vim
@@ -25,4 +29,12 @@ if has("user_commands")
 endif
 
 " Customize to your needs...
+syntax on
+filetype plugin indent on
+set autochdir                       "auto-change directory to current file
+set magic
+set mat=2
+set nocompatible                    "set nofoldenable
+set noeb " disable error bells
+set nohlsearch
 

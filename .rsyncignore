@@ -28,4 +28,8 @@ mutt/smime/*
 mutt/certificates
 subversion/auth/
 task/*.data
+ssh/config.*
+ssh/*.pem
+ssh/*.ppk
+ssh/*rsa*
 
