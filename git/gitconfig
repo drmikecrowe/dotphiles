@@ -10,8 +10,11 @@
 # Global Config
 [user]
     name = "Mike Crowe"
-    email = "mcrowe@zipitwireless.com"
+    email = "drmikecrowe@gmail.com"
     #signingkey = **Your GPG ID**
+
+[includeIf "gitdir:~/Programming/Zipit/"]
+    path = ~/Programming/Zipit/.gitconfig
 
 [branch "master"]
     remote = origin
@@ -51,15 +54,16 @@
 [core]
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	autocrlf = input
 
 [diff]
-    tool = vimdiff
+    tool = meld
 
 [difftool]
     prompt = false
 
 [merge]
-    tool = vimdiff
+    tool = meld
 
 [alias]
     # branch
@@ -140,9 +144,16 @@
     rex = remote rm
     rem = remote rename
 
+    # grep
+    find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+
 [push]
-    default = matching
+	default = current
 
 [url "git@github.com:"]
     insteadof = github:
+
+[credential]
+	helper = store --file ~/.my-credentials
+
 

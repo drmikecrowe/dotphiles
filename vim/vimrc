@@ -21,10 +21,11 @@ if has("user_commands")
   source ~/.vim/vundles.vim
   " Add extra bundles here...
   " Bundle 'reponame'
+  Bundle 'endel/vim-github-colorscheme'
 endif
 
 " Override colorscheme from base16
-let g:dotvim_colorscheme = 'slate'
+let g:dotvim_colorscheme = 'github'
 
 " Customize to your needs...
 syntax on
