@@ -19,3 +19,4 @@ Aptitude::Auto-Upgrade "true";
 Aptitude::AutoClean-After-Update "true";
 Aptitude::Forget-New-On-Update "false";
 Aptitude::Warn-Not-Root "true";
+Aptitude::Ignore-Recommends-Important "true";

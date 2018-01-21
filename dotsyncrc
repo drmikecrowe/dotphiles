@@ -62,6 +62,7 @@ screen/screenrc
 #task/task
 #task/taskrc
 tmux/tmux.conf
+tmux
 #tmux/tmuxinator
 vim/dotvim:.vim
 vim/vimrc
