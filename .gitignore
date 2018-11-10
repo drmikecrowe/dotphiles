@@ -43,3 +43,4 @@ ssh/*.pem
 ssh/*.ppk
 ssh/*rsa*
 
+gnupg/openpgp-revocs.d
