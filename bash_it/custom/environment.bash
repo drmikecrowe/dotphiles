@@ -14,6 +14,6 @@ if xhost >& /dev/null ; then
 	xhost +
 fi
 
-if [ -f ~/.bash_private ]; then 
-    source ~/.bash_private
+if [ -f ~/.private/.bash_private ]; then 
+    source ~/.private/.bash_private
 fi 
