@@ -53,3 +53,8 @@ $endif
 # file for clear-screen to work
 set keymap vi
 
+## arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
+

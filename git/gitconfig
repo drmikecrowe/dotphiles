@@ -10,11 +10,20 @@
 # Global Config
 [user]
     name = "Mike Crowe"
-    email = "drmikecrowe@gmail.com"
+	email = mcrowe@zipitwireless.com
     #signingkey = **Your GPG ID**
 
 [includeIf "gitdir:~/Programming/Zipit/"]
     path = ~/Programming/Zipit/.gitconfig
+
+[includeIf "gitdir:~/Programming/Personal/"]
+    path = ~/Programming/Personal/.gitconfig
+
+[url "git@github.com:"]
+    insteadof = github:
+
+[credential]
+	helper = store --file ~/.my-credentials
 
 [branch "master"]
     remote = origin
@@ -149,11 +158,5 @@
 
 [push]
 	default = current
-
-[url "git@github.com:"]
-    insteadof = github:
-
-[credential]
-	helper = store --file ~/.my-credentials
 
 
