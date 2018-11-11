@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "LOADED"
+
 if [ -d $HOME/bin ]; then
     export PATH=$PATH:$HOME/bin
 fi
@@ -10,9 +12,9 @@ fi
 
 export SCM_CHECK=false
 
-if xhost >& /dev/null ; then 
-	xhost +
-fi
+# if xhost >& /dev/null ; then 
+# 	xhost +
+# fi
 
 if [ -f ~/.private/.bash_private ]; then 
     source ~/.private/.bash_private
