@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "LOADED"
-
 if [ -d $HOME/bin ]; then
     export PATH=$PATH:$HOME/bin
 fi
