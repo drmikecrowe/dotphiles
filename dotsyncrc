@@ -20,10 +20,6 @@
 dotsyncrc
 ack/ackrc
 aptitude
-bash_it/custom/aliases.bash:.bash_it/aliases/custom.aliases.bash
-bash_it/custom/environment.bash:.bash_it/custom/environment.bash
-bash_it/custom/history.bash:.bash_it/custom/history.bash
-bash_it/custom/nvm.bash:.bash_it/custom/nvm.bash
 #bin:bin
 #ctags/ctags
 #cmus
