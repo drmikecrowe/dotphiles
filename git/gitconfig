@@ -19,6 +19,9 @@
 [includeIf "gitdir:~/Programming/Personal/"]
     path = ~/Programming/Personal/.gitconfig
 
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/Programming/Personal/.gitconfig
+
 [url "git@github.com:"]
     insteadof = github:
 
