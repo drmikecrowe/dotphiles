@@ -80,6 +80,7 @@ wget/wgetrc
 # Hosts to sync
 
 [hosts]
+mcrowe-Virtual-Machine
 mcrowe-XPS-15-9560		type=masterhost
 mcrowe-Inspiron-7537		type=masterhost		
 DESKTOP-GPVE514			type=masterhost		

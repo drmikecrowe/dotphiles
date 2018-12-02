@@ -1,5 +1,5 @@
 
-if [[ -t 1 && ! -p /dev/stdout ]]; then
+if [[ -t 1 && ! -p /dev/stdout && "$(id -u)" == "1000" ]]; then
     # Load Bash It
     export BASH_IT="$HOME/.bash_it"
     export BASH_IT_THEME='doubletime_multiline'
