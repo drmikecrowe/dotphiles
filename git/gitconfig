@@ -9,7 +9,7 @@
 
 # Global Config
 [user]
-    name = "Mike Crowe"
+	name = Mike Crowe
 	email = mcrowe@zipitwireless.com
     #signingkey = **Your GPG ID**
 
@@ -163,3 +163,10 @@
 	default = current
 
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	templatedir = ~/.git-templates
