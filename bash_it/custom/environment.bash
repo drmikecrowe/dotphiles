@@ -1,31 +1,25 @@
 #!/usr/bin/env bash
 
-if [ -d $HOME/bin ]; then
-    export PATH=$PATH:$HOME/bin
-fi
-
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     export DISPLAY=:0
 fi
 
 export ZOPTS="-I"
-export AWS_VAULT_BACKEND="file"
 
-# if xhost >& /dev/null ; then 
-# 	xhost +
-# fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" nouse  # This loads nvm
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
 
-if [ -f ~/.private/.bash_private ]; then 
-    source ~/.private/.bash_private
-fi 
-awsvld() {  
-    aws-vault --debug login $1 --mfa-token=$2 
-}
+if [ -d ~/.pyenv ]; then 
+    export PATH="~/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
-awsvl() {  
-    aws-vault --debug login $1 --mfa-token=$2 --stdout | xargs -t nohup $(which google-chrome-beta) %U --no-first-run --new-window --disk-cache-dir=$(mktemp -d /tmp/chrome.XXXXXX) --user-data-dir=$(mktemp -d /tmp/chrome.XXXXXX) >/dev/null 2>&1 &
-}
-
-awsve() {  
-    aws-vault exec --assume-role-ttl=60m --session-ttl=12h $@
-}
+[[ ":$PATH:" != *":/$HOME/bin:"* ]] && export PATH="$PATH:/$HOME/bin"
+[[ ":$PATH:" != *":/$HOME/go/bin:"* ]] && export PATH="$PATH:/$HOME/go/bin"
+[[ ":$PATH:" != *":/$HOME/.local/bin:"* ]] && export PATH="$PATH:/$HOME/.local/bin"
+[[ ":$PATH:" != *":/snap/bin:"* ]] && export PATH="$PATH:/snap/bin"
+[[ ":$PATH:" != *":./node_modules/.bin:"* ]] && export PATH="$PATH:./node_modules/.bin"

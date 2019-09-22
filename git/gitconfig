@@ -8,13 +8,6 @@
 #
 
 # Global Config
-[user]
-	name = Mike Crowe
-	email = mcrowe@zipitwireless.com
-    #signingkey = **Your GPG ID**
-
-[includeIf "gitdir:~/Programming/Zipit/"]
-    path = ~/Programming/Zipit/.gitconfig
 
 [includeIf "gitdir:~/Programming/Personal/"]
     path = ~/Programming/Personal/.gitconfig
@@ -26,7 +19,7 @@
     insteadof = github:
 
 [credential]
-	helper = store --file ~/.my-credentials
+	helper = manager
 
 [branch "master"]
     remote = origin
@@ -170,3 +163,6 @@
 	required = true
 [init]
 	templatedir = ~/.git-templates
+[user]
+	email = drmikecrowe@gmail.com
+	name = Mike Crowe
