@@ -10,3 +10,11 @@ awsvl() {
 awsve() {  
     aws-vault exec --assume-role-ttl=60m --session-ttl=12h $@
 }
+
+awsvhelp() {
+    cat <<EOF
+Commands:
+    * awsvld    -- login to AWS console for a specific profile
+EOF
+
+}

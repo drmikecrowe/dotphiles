@@ -19,7 +19,7 @@
     insteadof = github:
 
 [credential]
-	helper = manager
+	helper = store
 
 [branch "master"]
     remote = origin

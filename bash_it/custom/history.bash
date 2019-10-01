@@ -13,6 +13,10 @@ shopt -s nocaseglob
 shopt -s histappend
 shopt -s cmdhist
 
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=10000
+HISTFILESIZE=20000
+
 function detailed_hist() {
     if [ "$(id -u)" -ne 0 ]; then 
         NOW=$(date "+%Y-%m-%d")
