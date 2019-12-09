@@ -2,8 +2,7 @@
 if [[ -t 1 && ! -p /dev/stdout && "$(id -u)" == "1000" ]]; then
     # Load Bash It
     export BASH_IT="$HOME/.bash_it"
-    export BASH_IT_THEME='powerline-multiline'
-    # export BASH_IT_THEME='doubletime_multiline'
+    export BASH_IT_THEME='doubletime_multiline'
     export BASH_IT_CUSTOM="$HOME/.dotfiles/bash_it/custom"
     unset MAILCHECK
     export SCM_CHECK=true
