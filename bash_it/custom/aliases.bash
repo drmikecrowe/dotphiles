@@ -56,8 +56,3 @@ alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 
 mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
-
-if [ "$(which pnpm)" != "" ]; then
-  alias npm="pnpm"
-  alias yarn="pnpm"
-fi
