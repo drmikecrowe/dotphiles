@@ -24,6 +24,7 @@ aptitude
 #ctags/ctags
 #cmus
 curl/curlrc
+direnv/direnvrc
 git/gitconfig
 git/gitignore
 git/gitattributes
