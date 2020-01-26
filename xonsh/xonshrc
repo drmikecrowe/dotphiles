@@ -1,0 +1,45 @@
+$PL_PROMPT="cwd>rtns"
+$PL_TOOLBAR = 'who>branch>virtualenv>full_proc'
+
+# XONSH WIZARD START
+xontrib load apt_tabcomplete autojump docker_tabcomplete ssh_agent direnv powerline2 coreutils
+# XONSH WIZARD END
+
+$XONSH_STORE_STDOUT = True
+#$XONSH_HISTORY_SIZE = 
+$XONSH_HISTORY_MATCH_ANYWHERE = True
+
+aliases["....."] = 'cd ../../../..'
+aliases["...."] = 'cd ../../..'
+aliases["..."] = 'cd ../..'
+aliases[".."] = 'cd ..'
+aliases["acs"] = 'aptitude search'
+aliases["agi"] = 'sudo aptitude install'
+aliases["agu"] = 'sudo aptitude update'
+aliases["cnc"] = 'grep "^[^#;]"'
+aliases["dud"] = 'du -h --max-depth=1 --one-file-system'
+aliases["dudg"] = 'du -h --max-depth=1 --one-file-system 2>&1 | egrep "^[0-9.]*G"'
+aliases["gh"] = 'history | grep --colour=auto'
+aliases["grep"] = "grep --color --exclude-dir='.svn' --exclude-dir='.git'"
+aliases["l"] = 'ls -l --color=tty'
+aliases["ll"] = 'ls -la --color=tty'
+aliases["md"] = 'mkdir'
+aliases["psa"] = 'ps faux'
+aliases["psag"] = 'ps faux | grep'
+aliases["tail"] = 'tail -n 30'
+aliases["ta"] = 'tmux attach -t'
+aliases["tnew"] = 'tmux new -s'
+aliases["tls"] = 'tmux ls'
+aliases["tkill"] = 'tmux kill-session -t'
+
+import os
+from datetime import datetime
+from xonsh.history.json import JsonHistory
+class SaveAllHistory(JsonHistory):
+  def append(self, cmd):
+    cwd = "{}/.logs{}".format(__xonsh__.env["HOME"], __xonsh__.env["PWD"])
+    if not os.path.exists(cwd): os.makedirs(cwd)
+    file = "{}/bash-history-{}.log".format(cwd, datetime.now().strftime("%Y-%m-%d"))
+    open(file, "a").write("{} {}".format(datetime.now().strftime("%Y-%m-%d.%H.%M.%S"), cmd["inp"]))
+    super().append(cmd)
+$XONSH_HISTORY_BACKEND = SaveAllHistory

@@ -1,8 +1,8 @@
 if [[ -t 1 && ! -p /dev/stdout && "$(id -u)" == "1000" ]]; then
     # Load Bash It
     export BASH_IT="$HOME/.bash_it"
-    export BASH_IT_THEME='/home/mcrowe/.dotfiles/bash_it/theme/crowe.theme.bash'
-    #export BASH_IT_THEME='axin'
+    #export BASH_IT_THEME='/home/mcrowe/.dotfiles/bash_it/theme/crowe.theme.bash'
+    export BASH_IT_THEME='axin'
     export BASH_IT_CUSTOM="/home/mcrowe/.dotfiles/bash_it/custom"
     unset MAILCHECK
     export SCM_CHECK=true
