@@ -8,14 +8,17 @@ use_brew() {
 }
 
 use_pyenv() {
+  export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
 }
 
 use_goenv() {
+  export PATH="$HOME/.goenv/bin:$PATH"
   eval "$(goenv init -)"
 }
 
 use_nodenv() {
+  export PATH="$HOME/.nodenv/bin:$PATH"
   eval "$(nodenv init -)"
 }
 
