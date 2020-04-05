@@ -15,6 +15,9 @@ $XONSH_STORE_STDOUT = True
 #$XONSH_HISTORY_SIZE = 
 $XONSH_HISTORY_MATCH_ANYWHERE = True
 
+if os.path.exists("/usr/bin/ksshaskpass"):
+  ${...}["SSH_ASKPASS"] = '/usr/bin/ksshaskpass'
+
 home = ${...}["HOME"]
 for dir in ['.pyenv', '.nodenv', '.rbenv', '.goenv']:
   bin = "{}/{}/bin".format(home, dir)

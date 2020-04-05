@@ -6,6 +6,10 @@ fi
 
 export ZOPTS="-I"
 
+if [ "$(which ksshaskpass)" != "" ]; then
+  export SSH_ASKPASS="$(which ksshaskpath)"
+fi
+
 [[ ":$PATH:" != *":/$HOME/bin:"* ]] && export PATH="$PATH:/$HOME/bin"
 [[ ":$PATH:" != *":/$HOME/.local/bin:"* ]] && export PATH="$PATH:/$HOME/.local/bin"
 [[ ":$PATH:" != *":/snap/bin:"* ]] && export PATH="$PATH:/snap/bin"
