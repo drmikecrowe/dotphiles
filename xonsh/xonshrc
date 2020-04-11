@@ -4,11 +4,13 @@ import os
 from datetime import datetime
 from xonsh.history.json import JsonHistory
 
-$PL_PROMPT="cwd>rtns"
-$PL_TOOLBAR = 'who>branch>virtualenv>full_proc'
+# powerline2 
+# $PL_PROMPT="cwd>rtns"
+# $PL_TOOLBAR = 'who>branch>virtualenv>full_proc'
 
-# XONSH WIZARD START
-xontrib load apt_tabcomplete autojump docker_tabcomplete ssh_agent direnv powerline2 coreutils
+# pip install xonsh-apt-tabcomplete xontrib-autojump xonsh-docker-tabcomplete xontrib-ssh-agent xonsh-direnv
+# XONSH WIZARD START  
+xontrib load apt_tabcomplete autojump docker_tabcomplete ssh_agent direnv coreutils 
 # XONSH WIZARD END
 
 $XONSH_STORE_STDOUT = True
