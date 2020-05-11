@@ -6,10 +6,6 @@ fi
 
 export ZOPTS="-I"
 
-if [ "$(which ksshaskpass)" != "" ]; then
-  export SSH_ASKPASS="$(which ksshaskpath)"
-fi
-
 [[ ":$PATH:" != *":$HOME/bin:"* ]] && export PATH="$PATH:$HOME/bin"
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
 [[ ":$PATH:" != *":$HOME/.pyenv/bin:"* ]] && export PATH="$PATH:$HOME/.pyenv/bin"

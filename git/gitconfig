@@ -55,6 +55,9 @@
     bs = show-branch
     bS = show-branch -a
 
+    br = branch --no-merge development
+    bra = branch
+
     # checkout/fetch/merge/push/rebase
     # checkout
     co  = checkout
@@ -123,6 +126,56 @@
 
     # grep
     find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+
+    safereset = "!f() { \
+	trap 'echo ERROR: Operation failed; return' ERR; \
+	echo Making sure there are no changes...; \
+	last_status=$(git status --porcelain);\
+	if [[ $last_status != \"\" ]]; then\
+		echo There are dirty files:;\
+		echo \"$last_status\";\
+		echo;\
+		echo -n \"Enter Y if you would like to DISCARD these changes or W to commit them as WIP: \";\
+		read dirty_operation;\
+		if [ \"$dirty_operation\" == \"Y\" ]; then \
+			echo Resetting...;\
+			git reset --hard;\
+		elif [ \"$dirty_operation\" == \"W\" ]; then\
+			echo Comitting WIP...;\
+			git commit -a --message='WIP' > /dev/null && echo WIP Comitted;\
+		else\
+			echo Operation cancelled;\
+			exit 1;\
+		fi;\
+	fi;\
+}; \
+f"
+
+    switch = "!f() { \
+	trap 'echo ERROR: Operation failed; return' ERR; \
+	\
+	[ -z \"$1\" ] && echo "SHA/branch required, e.g 73bd32f" && exit 1; \
+	git safereset;\
+	echo ---- Checking out $1 ----; \
+	git checkout $1;\
+	echo ---- Restoring WIP if exists ----; \
+	last_commit=$(git log -1 HEAD --pretty=format:%s);\
+	[ \"$last_commit\" == \"WIP\" ] && { echo Reverting WIP commit... && git reset --soft HEAD~1; } || echo No WIP commit;\
+}; \
+f"
+
+    switch-back = "!f() { \
+	trap 'echo ERROR: Operation failed; return' ERR; \
+	\
+	echo ---- Checking out previous branch ----; \
+	git switch @{-1};\
+}; \
+f"
+
+    arc = "!git tag archive/$1 $1 && git branch -D"
+    rename = "!moveit() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; moveit"
+
+    unpushed-branches = "!git log --branches --not --remotes --no-walk --decorate --oneline"
 
 [push]
 	default = current

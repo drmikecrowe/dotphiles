@@ -82,6 +82,7 @@ xonsh/xonshrc
 # Hosts to sync
 
 [hosts]
+HDIR7490MikeC
 mcrowe-laptop
 mcrowe-Virtual-Machine
 mcrowe-XPS-15-9560		type=masterhost
